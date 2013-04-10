@@ -15,7 +15,8 @@
 ;; Contact: http://www.contactify.com/26a0f
 ;;
 
-;; the entry for replace is missing, couldn't load it with that entry inside.
+;; add (load "/home/yourpath/man.lsp") to nls.lsp to load it automatically
+;; the entry for replace is missing, couldn't load this db with that entry inside.
 
 ;; function for the output
 (define (man input)
