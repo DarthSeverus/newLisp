@@ -4,9 +4,15 @@
 ;;
 
 ;; I used the part of a text file from newlisp manual with the definitions, created with dump function of w3m browser 
-;; First entry "!" will not be in db, must be added manually
+;; $ cat newlisp_manual.html | w3m -dump -T text/html > nl-man-complete
+;; $ sed -n '4046,17921p' /path/nl-man-complete > nl-functs
+
+;; Known issues:
+;; I had to remove some lines in the file before manGen was working, see printed function names
+;; I deleted the corrected file and it was without copyright info, so I can't add it to github
+;; First entry "!" will not be in db after running this script, must be added manually
 ;; Some articles include different functions, this must be corrected manually - like +, - must become two entrys, so that (man "+") works!  
-;; The article about regex ist not working, db can't be loaded if it is into it
+;; The article about regex ist not working, db can't be loaded if it is into it, remove or fix it
 
 
 #!/usr/bin/env newlisp
@@ -46,8 +52,15 @@
 ; testing
 (dolist (temp headlines2) (if (nil? (eval-string (string {(man-content "} temp {")}))) (push temp failed -1)))
 
-; function must be copied into man.lsp, which must then be loaded by users
-(define (man input) (println (man-content input)) (setq output-man ""))
+; info
+(println "\nFor saving:")
+(println {(save "/path/man.lsp" 'man-content)})
+(println "Following function must then be copied into man.lsp, which must then be loaded by users")
+(println {(define (man input) (println (man-content input)) (setq output-man "")) (constant 'man)})
+
+; this function must be copied into man.lsp, which must then be loaded by users
+(define (man input) (println (man-content input)) (setq output-man "")) (constant 'man)
+
 
 
  

@@ -1,6 +1,7 @@
 ;; @module man.lsp
 ;; @description A db with the definitions of newLisp functions 
 ;; @description from newLisp User Manual and Reference v.10.4.5 rev 2012-12-11 
+;; @location http://github.com/DarthSeverus/newLisp/
 ;;
 ;; Copyright of the content from newLisp Manual and Reference 
 ;; © 2012 Lutz Mueller www.nuevatec.com. All rights reserved.
@@ -15,8 +16,8 @@
 ;; @author man.db created with manGen.lsp by Sven Oliver Severini (2013) 
 ;; @author Contact: http://www.contactify.com/26a0f
 ;;
-;; @howto (load "/home/yourpath/man.lsp") to nls.lsp to load it automatically
-;; @howto put it also into "/usr/share/newlisp/modules" or the correct path in your OS, then (module man.lsp)
+;; @howto Put the line (load "/home/yourpath/man.lsp") to nls.lsp to load it automatically
+;; @howto Put man.lsp also into "/usr/share/newlisp/modules" or the correct path in your OS, then (module man.lsp)
 ;; @syntax (man "function") 
 
 ;; the entry for replace is missing, couldn't load this db with that entry inside.
